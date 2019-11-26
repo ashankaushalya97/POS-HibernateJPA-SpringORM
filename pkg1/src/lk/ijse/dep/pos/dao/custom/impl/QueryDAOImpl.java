@@ -8,13 +8,14 @@ import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository
 public class QueryDAOImpl implements QueryDAO {
 
     private EntityManager entityManager;
@@ -43,8 +44,4 @@ public class QueryDAOImpl implements QueryDAO {
         return list;
     }
 
-    @Override
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager=entityManager;
-    }
 }

@@ -4,12 +4,14 @@ import lk.ijse.dep.pos.entity.SuperEntity;
 import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public abstract class CrudDAOImpl<T extends SuperEntity,ID extends Serializable> implements CrudDAO<T,ID> {
 
+    @PersistenceContext
     protected EntityManager entityManager;
     private  Class<T> entity;
 
@@ -41,8 +43,7 @@ public abstract class CrudDAOImpl<T extends SuperEntity,ID extends Serializable>
     public void delete(ID id) throws Exception {
         entityManager.refresh(entityManager.getReference(entity,id));
     }
-    @Override
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public EntityManager getEntityManager(){
+        return entityManager;
     }
 }
