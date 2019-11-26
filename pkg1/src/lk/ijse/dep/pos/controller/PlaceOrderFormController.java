@@ -33,7 +33,10 @@ import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import lk.ijse.dep.pos.util.OrderDetailTM;
+import org.hibernate.Session;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
@@ -337,11 +340,18 @@ public class PlaceOrderFormController {
         OrderDTO order = new OrderDTO(orderId, null, cmbCustomerId.getSelectionModel().getSelectedItem(), orderDetails);
         try {
             orderBO.placeOrder(order);
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/pos/report/order-report.jasper"));
-            Map<String, Object> params = new HashMap<>();
-            params.put("orderId", orderId + "");
+            EntityManager em = AppInitializer.ctx.getBean(EntityManagerFactory.class).createEntityManager();
+            em.unwrap(Session.class).doWork(connection -> {
+                System.out.println(connection);
+            });
+            em.close();
+
+//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/pos/report/order-report.jasper"));
+//            Map<String, Object> params = new HashMap<>();
+//            params.put("orderId", orderId + "");
 //            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, DBConnection.getInstance().getConnection());
 //            JasperViewer.viewReport(jasperPrint, false);
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,"Something went wrong, please contact DEPPO").show();
             Logger.getLogger("lk.ijse.dep.pos.controller").log(Level.SEVERE, null,e);

@@ -5558,3 +5558,5 @@ Nov 26, 2019 4:31:13 PM org.springframework.orm.jpa.AbstractEntityManagerFactory
 INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
 Nov 26, 2019 4:33:01 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean destroy
 INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
+Nov 26, 2019 4:44:57 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean destroy
+INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
