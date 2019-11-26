@@ -11,13 +11,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class QueryDAOImpl implements QueryDAO {
-
+    @PersistenceContext
     private EntityManager entityManager;
 
 

@@ -5554,3 +5554,7 @@ Nov 26, 2019 3:31:52 PM org.hibernate.engine.jdbc.connections.internal.DriverMan
 INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/POSDEP4?createDatabaseIfNotExist=true]
 Nov 26, 2019 4:26:33 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean destroy
 INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
+Nov 26, 2019 4:31:13 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean destroy
+INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
+Nov 26, 2019 4:33:01 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean destroy
+INFO: Closing JPA EntityManagerFactory for persistence unit 'default'
